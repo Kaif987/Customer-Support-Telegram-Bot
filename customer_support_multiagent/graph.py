@@ -10,7 +10,7 @@ from customer_support_multiagent.assistants.hotel_assistant import book_hotel_ru
 from customer_support_multiagent.assistants.excursion_assistant import book_excursion_runnable, book_excursion_sensitive_tools, book_excursion_safe_tools, route_book_excursion
 from customer_support_multiagent.assistants.primary_assistant import assistant_runnable, primary_assistant_tools, route_primary_assistant, route_to_workflow
 from langgraph.constants import END
-
+import os
 
 class Workflow:
     local_file = "./travel2.sqlite"
@@ -18,7 +18,8 @@ class Workflow:
     backup_file = "./travel2.backup.sqlite"
 
     def __init__(self):
-        get_db()
+        if not os.path.exists(self.local_file) and os.path.exists(self.backup_file):
+            get_db()
         self.db = update_dates(backup_file=self.backup_file, file=self.local_file) 
         # create graph
         workflow = StateGraph(State)
