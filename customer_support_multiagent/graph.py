@@ -18,7 +18,7 @@ class Workflow:
     backup_file = "./travel2.backup.sqlite"
 
     def __init__(self):
-        if not os.path.exists(self.local_file) and os.path.exists(self.backup_file):
+        if not (os.path.exists(self.local_file) and os.path.exists(self.backup_file)):
             get_db()
         self.db = update_dates(backup_file=self.backup_file, file=self.local_file) 
         # create graph
