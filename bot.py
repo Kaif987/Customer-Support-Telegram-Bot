@@ -1,7 +1,5 @@
 import os
-import telebot
 from dotenv import load_dotenv
-import telebot.async_telebot
 load_dotenv()
 from customer_support_multiagent import customer_support
 from uuid import uuid4
