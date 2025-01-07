@@ -126,7 +126,7 @@ pydantic-core==2.27.2
     # via pydantic
 pydantic-settings==2.7.1
     # via langchain-community
-pytelegrambotapi==4.26.0
+grambotapi==4.26.0
     # via telelgram-bot (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via pandas
